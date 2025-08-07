@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Myxomatrix: Evolving Population-level Complexity - Preprint</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body class="preprint-body">
+    <!-- Navigation -->
+    <nav class="preprint-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/dawn-chorus-text-and-tagline.png" alt="Dawn Chorus" class="preprint-logo-image">
+            </div>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Paper Header -->
+    <div class="paper-header">
+        <div class="paper-header-content">
+            <h1>The Myxomatrix: Evolving Population-level Complexity in Darwinian Artificial Life</h1>
+            <div class="paper-authors">Bradley Luke Smith<sup>1</sup>, Andrew Barnes<sup>2</sup></div>
+            <div class="paper-affiliation">
+                <sup>1</sup>Independent Researcher, Derbyshire, United Kingdom<br>
+                <sup>2</sup>Department of Computer Science, University of Bath, Bath, United Kingdom
+            </div>
+            <div class="paper-actions">
+                <a href="assets/myxomatrix_preprint.pdf" class="paper-button primary" download>Download Full PDF</a>
+                <a href="https://github.com/BradLSmith/myxomatrix" class="paper-button secondary"
+                    target="_blank">View Code</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paper Content -->
+    <div class="paper-content">
+        <div class="abstract" id="abstract">
+            <h2>Abstract</h2>
+            <p>Previous attempts to replicate Darwinian evolution through artificial life simulations (ALife worlds)
+                have struggled to achieve open-endedness or evolve population-level complexity. We suggest this
+                limitation stems from allowing agents to survive and reproduce independently, inadvertently precluding
+                the evolution of sophisticated collective behaviours. We propose the Interdependence Condition (IC):
+                that agents must depend upon emergents arising at the population-level to satisfy their replication
+                criteria reliably—a condition for encouraging population-level dynamical complexity.</p>
+
+            <p>We introduce the Myxomatrix, an ALife world inspired by plasmodial slime moulds, and test the hypothesis
+                that individualistic agents struggle to develop collective complexity by comparing IC-compliant and
+                non-compliant variants. In the IC-compliant variant, agents evolve collective behaviours, progressing
+                from Blobs to Crawlers to Sweepers, and ultimately to Switchers—populations exhibiting
+                perception-decision-action loops that exist only at the group level and are inaccessible to the
+                individuals, which we term superagency.</p>
+
+            <p>These superagents develop adaptive search strategies and altruistic inter-lineage mass transfer.
+                Conversely, in the non-compliant variant, agents typically maintain individualistic strategies (Movers)
+                even when collective behaviours are mechanically possible, accessible through minor mutation, and
+                demonstrably advantageous. These results suggest that the IC provides a framework for designing ALife
+                worlds that better approximate the complexifying creative power of Darwinian evolution.</p>
+        </div>
+
+        <div class="keywords">
+            <strong>Keywords:</strong> Neuroevolution, Open-ended Evolution, Complexity, ALife Worlds, Collective
+            Behaviour, Superagency
+        </div>
+
+        <!-- Abbreviated Version Notice -->
+        <div class="notice-box">
+            <p><strong>Note:</strong> This is a highly abbreviated version of the full research paper. For complete
+                methodology, detailed results, comprehensive analysis, and full references, please <strong><a href="#"
+                        class="notice-link">download the complete PDF version</a></strong>.</p>
+        </div>
+
+        <h2>1. Introduction</h2>
+        <p>Evolution by natural selection, or Darwinian evolution, explains life's prodigious diversity and complexity
+            in terms of differential survivability of genetic information, encoded within imperfect replicators, over
+            generational time. Beginning with relatively simple prebiotic chemistry, Darwinian evolution has
+            progressively innovated and integrated prior innovations as components of new ones at larger scales.</p>
+
+        <p>This process has gradually given rise to the highly stratified complexity we observe in the biosphere today,
+            from organic chemistry to organelles, cells, bodies, and social groups. These successive organisational
+            levels facilitate emergent capabilities: metabolic regulation in organelles, motility in cells, sensorimotor
+            integration in multicellular organisms, and distributed cognitive processes in social groups such as
+            eusocial insect colonies.</p>
+
+        <p>Artificial life (ALife) researchers aim to replicate this phenomenon through Darwinian ALife worlds,
+            simulated environments populated with agents that (imperfectly) replicate, and compete for the prerequisite
+            resources to do so. However, existing ALife worlds have struggled to achieve the open-endedness and
+            evolution of life-like complex dynamics and intelligence that characterise natural evolution.</p>
+
+        <div class="figure-container">
+            <img src="images/ESCbinarystringcomposition.png"
+                alt="Figure 1: Emergence, self-organisation, and complexity analysis" class="figure-image">
+            <div class="figure-caption">
+                <strong>Figure 1:</strong> Emergence, self-organisation, and complexity as a function of binary string
+                composition P(X). Recreation of the analysis presented by Fernández et al., 2014.
+            </div>
+        </div>
+
+        <h2>2. Emergence, Self-Organisation, and Complexity</h2>
+        <p>In large-scale systems with many interacting components, complexity can be understood as an equilibrium of
+            two opposing phenomena: emergence, where novel information not present at the micro-level arises at the
+            macro-level through interactions among micro-level components; and self-organisation, where systems
+            autonomously develop robust order (i.e., repeated and sustained information).</p>
+
+        <p>The natural world abounds with examples of complexity in this sense. Many small elements, through their
+            interactions distributed among the population, give rise to a gestalt entity, such as cells emerging from
+            organic molecules, representing the generation of information that is novel with respect to the molecules.
+            These entities are then reproduced to form new populations at higher scales—demonstrating self-organisation
+            through the recurrence of information.</p>
+
+        <h2>3. ALife Worlds</h2>
+        <p>ALife worlds are computer-simulated environments where programs or agents with genetically encoded control
+            mechanisms compete to survive and (near-perfectly) replicate in a shared and (approximately) spatially and
+            temporally continuous environment. Selection pressures arise endogenously in the absence of an explicit
+            fitness function, attempting to reproduce life-like systems through (approximately) Darwinian evolution in
+            silico.</p>
+
+        <p>Existing ALife worlds include Tierra, Avida, and Evita, which modelled programs with mutable instructions.
+            Geb modelled neural-network-controlled agents and was the first model to be classified as unbounded using
+            activity statistics. PolyWorld and the more recent Bibites attempt to approximate nature more closely with
+            animal- or cell-like agents roaming a 2D plane, foraging for plants to sustain themselves.</p>
+
+        <h2>4. What's Missing in ALife Worlds?</h2>
+        <p>Early artificial life simulations made remarkable progress in evolving agents that exhibit animal- or
+            cell-like behaviours, establishing foundational approaches for facilitating and measuring evolutionary
+            emergence. However, compared with the natural world, ALife worlds are distinctly lacking in complexity in
+            the sense of a confluence of emergence and self-organisation made manifest in the environment through
+            interactions amongst populations.</p>
+
+        <p>We propose that ALife agents might be better understood as 'genetic agents': expression mechanisms, analogous
+            to the molecular machinery that stores and translates genetic information into phenotypic effects on Earth.
+            This re-framing suggests an interesting direction for expanding current ALife approaches, drawing
+            inspiration from theories of life's origin based in autocatalysis.</p>
+
+        <h2>5. The Interdependence Condition (IC)</h2>
+        <p>Based on the hypothesised role of the replicator-reproducer distinction in the emergence of biological
+            complexity on Earth, we propose the Interdependence Condition (IC) for scaffolding the evolution of
+            population-level complexity in ALife worlds:</p>
+
+        <p><em>Agents must depend upon emergents arising through interactions amongst populations of agents and elements
+                of the environment to satisfy their replication criteria reliably.</em></p>
+
+        <p>In other words, populations of agents are networked by dependence relationships, and independent strategies
+            are not viable.</p>
+
+        <div class="figure-container">
+            <div class="figure-row">
+                <div class="figure-item">
+                    <img src="images/hypercycle.png" alt="Hypercycle diagram" class="figure-image-small">
+                    <div class="figure-subcaption">Hypercycle</div>
+                </div>
+                <div class="figure-item">
+                    <img src="images/dependencychain.png" alt="Dependency chain diagram" class="figure-image-small">
+                    <div class="figure-subcaption">Dependency Chain</div>
+                </div>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 2:</strong> Two examples of systems satisfying the Interdependence Condition. Left: A
+                hypercycle, a simple hypothetical autocatalytic set proposed by Eigen and Schuster, 1979. Right: A
+                linear dependency chain where each agent depends on the next for survival.
+            </div>
+        </div>
+
+        <p>We hypothesise that the crucial feature of such systems is not the specific topology of dependencies, but
+            rather the reliance on population-level emergents. When populations depend on emergent properties, mutations
+            at the individual level can precipitate significant changes in population-level dynamics. This mechanism
+            provides three essential features:</p>
+
+        <ol>
+            <li>Mutable emergence generates novel information that is inherently relevant to survival and replication
+            </li>
+            <li>Selection pressures ensure only information advantageous to survival persists and is replicated,
+                fostering self-organisation, and therefore complexity</li>
+            <li>Complexity, novel but somewhat predictable information, provides novel opportunities for innovation,
+                potentially including new emergents at higher scales</li>
+        </ol>
+
+        <h2>6. The Myxomatrix</h2>
+        <p>We introduce the Myxomatrix, a novel ALife world designed to test the IC and demonstrate population-level
+            complexity evolution in a visually interpretable manner. The simulation draws inspiration from plasmodial
+            slime moulds, which are large multinucleate single-celled organisms that exhibit emergent swarm intelligence
+            through the coordinated actions of many nuclei distributed throughout their cytoplasm.</p>
+
+        <p>The Myxomatrix operates on a 2D cellular grid where each cell may contain both a plant and an agent. Agents
+            must consume plants to acquire mass, which gradually depletes at a rate proportional to their controller
+            network complexity. A crucial constraint is that agents cannot move from their birth cell—only replicate
+            into neighbouring cells and transfer mass to existing neighbours.</p>
+
+        <div class="figure-container">
+            <img src="images/myxomatrixearlysnapshot.png" alt="Figure 3: Early Myxomatrix snapshot"
+                class="figure-image">
+            <div class="figure-caption">
+                <strong>Figure 3:</strong> A snapshot of the Myxomatrix shortly after initialisation, showing various
+                blob-like distribution patterns resulting from randomised replication and transfer behaviour.
+            </div>
+        </div>
+
+        <p>Consequently, effective environmental exploration requires agents to develop coordinated replication and mass
+            transfer strategies that culminate in efficient traversal and effective search patterns at the
+            population-level. This design satisfies the IC through dependency chains between agents.</p>
+
+        <h2>7. Results</h2>
+        <p>Our experimental results provide strong support for the Interdependence Condition as a framework for
+            scaffolding the evolution of population-level complexity in artificial life systems. The reliable emergence
+            of superagency in the IC-compliant Myxomatrix demonstrates that enforced agent interdependence can
+            successfully guide evolutionary processes toward increasingly sophisticated collective behaviours.</p>
+
+        <h3>7.1 IC-Compliant Myxomatrix</h3>
+        <p>In the IC-compliant variant, agents consistently evolved through distinct phases:</p>
+
+        <ul>
+            <li><strong>Blobs:</strong> Initial erratic replication and transfer patterns creating expanding blob-like
+                formations</li>
+            <li><strong>Crawlers:</strong> Streamlined single-agent chains that replicate forward and transfer mass
+                efficiently</li>
+            <li><strong>Sweepers:</strong> Diagonal formations of crawler-like lineages that provide more thorough local
+                search</li>
+            <li><strong>Switchers:</strong> Advanced populations exhibiting adaptive search strategies and altruistic
+                mass transfer between lineages</li>
+        </ul>
+
+        <div class="figure-container">
+            <div class="evolution-sequence">
+                <div class="evolution-stage">
+                    <img src="images/crawler.gif" alt="Crawlers behaviour" class="evolution-gif">
+                    <div class="evolution-label">Crawlers</div>
+                </div>
+                <div class="evolution-arrow">→</div>
+                <div class="evolution-stage">
+                    <img src="images/sweeper.gif" alt="Sweepers behaviour" class="evolution-gif">
+                    <div class="evolution-label">Sweepers</div>
+                </div>
+                <div class="evolution-arrow">→</div>
+                <div class="evolution-stage">
+                    <img src="images/switcher.gif" alt="Switchers behaviour" class="evolution-gif">
+                    <div class="evolution-label">Switchers</div>
+                </div>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 4:</strong> Examples of evolved behaviours in the IC-compliant Myxomatrix showing the
+                progression from Crawlers to Sweepers to Switchers.
+            </div>
+        </div>
+
+        <h3>7.2 IC-Non-Compliant Myxomatrix</h3>
+        <p>In the non-compliant variant, agents could move independently between cells. This modification created
+            movement-based equivalents to all replicate-and-transfer-based strategies, effectively relaxing the IC.
+            Agents in this variant typically developed individualistic "Mover" strategies, maintaining independent
+            traversal patterns even when collective behaviours were mechanically possible and demonstrably advantageous.
+        </p>
+
+        <h3>7.3 Superagency</h3>
+        <p>The most significant finding was the emergence of "superagency" in IC-compliant populations. Switchers
+            demonstrated perception-decision-action loops that existed only at the group level, including:</p>
+
+        <ul>
+            <li>Adaptive search pattern selection based on resource distribution</li>
+            <li>Altruistic mass transfer between lineages</li>
+            <li>Coordinated exploration and exploitation strategies</li>
+            <li>Dynamic formation and reformation of collective structures</li>
+        </ul>
+
+        <p>These capabilities were inaccessible to individual agents and emerged purely through population-level
+            dynamics, representing genuine collective intelligence.</p>
+
+        <h2>8. Discussion</h2>
+        <p>The success of the IC in scaffolding the evolution of complexity offers useful insights for designing future
+            artificial life systems. By preventing agents from developing purely individualistic strategies, the IC
+            maintains population-level emergent properties that promote the evolution of collective behaviours.</p>
+
+        <p>The findings suggest that the absence of complex population-level dynamics in previous artificial life
+            systems may be partially attributed to their initialisation with independently viable agents. When
+            individuals can survive and reproduce without relying on population-level emergent properties, they appear
+            to actively resist evolutionary pathways that could lead to sophisticated collective behaviours.</p>
+
+        <h2>9. Conclusion</h2>
+        <p>Our experimental results provide strong support for the Interdependence Condition as a framework for
+            scaffolding the evolution of population-level complexity in artificial life systems. The reliable emergence
+            of superagency in the IC-compliant Myxomatrix demonstrates that enforced agent interdependence through
+            emergent dynamics can successfully guide evolutionary processes toward increasingly sophisticated collective
+            behaviours.</p>
+
+        <p>These results help us understand how collective behaviours can emerge through evolution and provide a
+            practical approach for creating artificial life systems that more consistently develop sophisticated
+            population-level dynamics. The IC offers a promising direction for future research into open-ended evolution
+            and the development of truly complex artificial life systems.</p>
+
+        <h2>10. Future Work</h2>
+        <p>Future research should explore the IC's effects across fundamentally different implementation approaches,
+            including heterogeneous environments and individual-level analysis. The framework provides a foundation for
+            investigating whether sophisticated individual-level capabilities can coevolve with population-level
+            complexity in IC-compliant systems.</p>
+
+        <!-- Abbreviated Version Notice (Second) -->
+        <div class="notice-box">
+            <p><strong>Note:</strong> This is a highly abbreviated version of the full research paper. For complete
+                methodology, detailed results, comprehensive analysis, and full references, please <strong><a href="#"
+                        class="notice-link">download the complete PDF version</a></strong>.</p>
+        </div>
+
+        <!-- Citation Boxes -->
+        <div class="citation-box">
+            <h3>Cite This Paper</h3>
+            Smith, B. L., & Barnes, A. (2025). The Myxomatrix: Evolving Population-level Complexity in Darwinian
+            Artificial Life. <em>Preprint</em>. Dawn Chorus.
+        </div>
+
+        <div class="citation-box">
+            <h3>Cite This Website</h3>
+            Smith, B. L., & Barnes, A. (2025). Myxomatrix Research Project. <em>Dawn Chorus</em>. Retrieved from
+            https://[your-website-url].com
+        </div>
+
+        <div class="citation-box">
+            <h3>Cite the Code Repository</h3>
+            Smith, B. L., & Barnes, A. (2025). Myxomatrix: Population-level Complexity Evolution Simulation [Computer
+            software]. <em>GitHub</em>. https://github.com/BradLSmith/myxomatrix
+        </div>
+
+        <p style="text-align: center; margin-top: 3rem; color: #666;">
+            <a href="index.html" class="paper-button secondary">← Back to Home</a>
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/dawn-chorus-logo.png" alt="Dawn Chorus" class="footer-logo-icon">
+                <img src="images/dawn-chorus-text-and-tagline.png" alt="Dawn Chorus" class="footer-logo-text">
+                <p>A research Initiative by Bradley L. Smith</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#mission">Mission</a>
+                <a href="index.html#myxomatrix">Myxomatrix</a>
+                <a href="index.html#research">Research</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/BradLSmith/myxomatrix" class="social-link" target="_blank">
+                    <span class="social-icon">🐙</span>
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/bradley-smith-030289379/" class="social-link" target="_blank">
+                    <span class="social-icon">💼</span>
+                    LinkedIn
+                </a>
+                <a href="https://www.youtube.com/channel/UC-jxG2kI_NMv68HRczqkwuw" class="social-link" target="_blank">
+                    <span class="social-icon">📺</span>
+                    YouTube
+                </a>
+                <a href="https://x.com/dawnchorusevo" class="social-link" target="_blank">
+                    <span class="social-icon">🅧</span>
+                    Twitter/X Platform
+                </a>
+                <a href="https://bsky.app/profile/dawnchorusevo.bsky.social" class="social-link" target="_blank">
+                    <span class="social-icon">🦋</span>
+                    Bluesky
+                </a>
+                <a href="https://reddit.com/u/DawnChorusInnovation" class="social-link" target="_blank">
+                    <span class="social-icon">🤖</span>
+                    Reddit
+                </a>
+            </div>
+            <p style="margin-top: 2rem; color: rgba(255, 255, 255, 0.5);">
+                © 2025 Dawn Chorus. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myxomatrix - Dawn Chorus</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <div class="navbar-container">
+        <nav id="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="images/dawn-chorus-logo.png" alt="Dawn Chorus" class="logo-image">
+                    <img src="images/dawn-chorus-text-and-tagline.png" alt="Dawn Chorus" class="logo-text-image">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home" onclick="scrollToTop(event)">Home</a></li>
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#myxomatrix">Myxomatrix</a></li>
+                    <li><a href="#research">Research</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-split">
+            <!-- Left side: Content -->
+            <div class="hero-content-left">
+                <img src="images/myxomatrix-logo.png" alt="Myxomatrix" class="hero-logo">
+                <p>Exploring the evolution of population-level complexity in a visually interpretable artificial life
+                    world based on plasmodial slime moulds (Myxogastria)</p>
+                <a href="#mission" class="cta-button">Learn More</a>
+                <div class="secondary-buttons">
+                    <a href="https://github.com/BradLSmith/myxomatrix" class="cta-button secondary">Download</a>
+                    <a href="https://www.youtube.com/watch?v=2X15A_eAYfM" class="cta-button secondary" target="_blank">See on
+                        YouTube</a>
+                </div>
+            </div>
+
+            <!-- Right side: Video -->
+            <div class="hero-video-right">
+                <iframe
+                    src="https://www.youtube.com/embed/2X15A_eAYfM?autoplay=1&mute=1&loop=1&playlist=2X15A_eAYfM&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&playsinline=1"
+                    title="Myxomatrix Simulation Demo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section id="mission" class="section section-dark">
+        <div class="container">
+            <h2>Our Mission</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Collective Intelligence<br>in Artificial Life</h3>
+                    <p>Understanding how collective intelligence emerges from simple individual interactions is a
+                        crucial challenge in
+                        artificial life research.</p>
+                    <p>We investigate the role of interdependence between replicating agents in promoting the evolution
+                        of
+                        population-level agency in Darwinian-like artificial life.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Enhancing Evolution<br>Education</h3>
+                    <p>Given the vast timescales involved, evolution by natural selection is notoriously difficult to
+                        visualise and
+                        therefore to teach&mdash;particularly to visual learners.</p>
+                    <p>Our software provides an interactive and visually interpretable demonstration of evolution,
+                        bringing Darwinism
+                        directly to every student's fingertips.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Myxomatrix Section -->
+    <section id="myxomatrix" class="section section-dark">
+        <div class="container">
+            <h2>The Myxomatrix</h2>
+        </div>
+
+        <div class="myxomatrix-hero-fullwidth">
+            <div class="container">
+                <p style="text-align: center;">The Myxomatrix is a visually interpretable artificial life simulation
+                    inspired by plasmodial slime moulds.
+                    The system achieves consistent population-level complexity evolution without need of a predefined
+                    'goal' state that would typically be encoded via a fitness function or convoluted initial
+                    conditions.
+                    The Myxomatrix autonomously evolves collective behaviours that are genuinely novel with respect to
+                    the initial agents.
+                </p>
+
+                <div class="evolution-flow">
+                    <!-- Crawlers -->
+                    <div class="stage">
+                        <img src="images/crawler.gif" alt="Crawlers stage" />
+                        <h3>Crawlers</h3>
+                    </div>
+
+                    <div class="arrow">
+                        <svg width="70" height="70" viewBox="0 0 60 60">
+                            <path d="M10 30 L50 30 M50 30 L40 20 M50 30 L40 40" stroke="#f5e6d3" stroke-width="4"
+                                fill="none" />
+                        </svg>
+                    </div>
+
+                    <!-- Sweepers -->
+                    <div class="stage">
+                        <img src="images/sweeper.gif" alt="Sweepers stage" />
+                        <h3>Sweepers</h3>
+                    </div>
+
+                    <div class="arrow">
+                        <svg width="70" height="70" viewBox="0 0 60 60">
+                            <path d="M10 30 L50 30 M50 30 L40 20 M50 30 L40 40" stroke="#f5e6d3" stroke-width="4"
+                                fill="none" />
+                        </svg>
+                    </div>
+
+                    <!-- Switchers -->
+                    <div class="stage">
+                        <img src="images/switcher.gif" alt="Switchers stage" />
+                        <h3>Switchers</h3>
+                    </div>
+                </div>
+
+                <p style="text-align: center;">The world consists of a grid of cells, each of which may contain an agent
+                    and a plant.
+                    Agents must search for and eat the plants to survive, but cannot move from their cell, only
+                    replicate
+                    and transfer mass to neighbouring agents. As such, agents must cooperate: replicating
+                    and transferring tactfully to traverse the environment as a collective.
+                </p>
+
+                <div class="myxomatrix-actions">
+                    <a href="https://www.youtube.com/channel/UC-jxG2kI_NMv68HRczqkwuw" class="paper-button primary"
+                        target="_blank">See on YouTube</a>
+                    <a href="https://github.com/BradLSmith/myxomatrix" class="paper-button secondary"
+                        target="_blank">Download</a>
+                    <a href="preprint.html" class="paper-button primary">Read the Paper</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>The IC<br>Framework</h3>
+                    <p>Our novel Interdependence Condition ensures exploration of collective behaviours rather than
+                        individualistic
+                        strategies.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Population-Level<br>Superagency</h3>
+                    <p>Populations develop perception-decision-action loops that exist only at the group level. These
+                        "superagents"
+                        exhibit novel capabilities inaccessible to individual agents.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3>Visually<br>Interpretable</h3>
+                    <p>Unlike abstract simulations, the Myxomatrix allows direct observation of evolutionary progression
+                        from Blobs to
+                        Crawlers to Sweepers and ultimately to Switchers, making evolution tangible.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💗</div>
+                    <h3>Evolved<br>Altruism</h3>
+                    <p>Advanced populations exhibit altruistic mass transfer between lineages, prioritising group
+                        survival over
+                        individual genetic advantage.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>Novel Neural Network<br>Encoding</h3>
+                    <p>Indefinite NeuroEvolution of Augmenting Spike-Timing-Dependent Plastic Topologies provides a
+                        biologically
+                        realistic approach to spiking neural network evolution.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>AI & Distributed<br>Systems Applications</h3>
+                    <p>The IC framework may be applicable to evolving rule-sets for multi-agent distributed computation
+                        and intelligent
+                        network architectures.</p>
+                </div>
+            </div>
+
+            <!--––– IC Experiment ––––-->
+            <div class="evolution-flow">
+                <section id="ic-validation" class="ic-validation">
+                    <div class="ic-validation-content">
+                        <h3>The IC Experiment</h3>
+                        <p>
+                            Comparative runs confirm that only IC-compliant populations consistently climb the entire
+                            evolutionary ladder. Non-compliant runs where individualistic strategies take hold tend to
+                            plateau without developing population-level behaviours.
+                        </p>
+                        <a href="preprint.html" class="paper-button primary">Read More</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section section-light">
+        <div class="container">
+            <h2>Research</h2>
+
+            <div class="papers-grid">
+                <div class="paper-card">
+                    <div class="paper-preview">
+                        Current
+                    </div>
+                    <div class="paper-content">
+                        <h3>The Myxomatrix: Evolving Population-level Complexity in Darwinian Artificial Life</h3>
+                        <p>Bradley Luke Smith, Andrew Barnes</p>
+                        <p>We introduce the Interdependence Condition (IC) and demonstrate its effectiveness in
+                            scaffolding the evolution of population-level complexity through the novel Myxomatrix
+                            simulation. Our results show reliable emergence of superagency in IC-compliant systems.</p>
+                        <div class="paper-links">
+                            <a href="preprint.html" class="paper-link primary">View Synopsis</a>
+                            <a href="assets/myxomatrix_preprint.pdf" class="paper-link secondary">Download Full PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-card">
+                    <div class="paper-preview">
+                        Coming Soon
+                    </div>
+                    <div class="paper-content">
+                        <h3>The Anthropomatrix: Mutually Bootstrapping Individual- and Population-level Complexity in
+                            Darwinian Artiﬁcial Life</h3>
+                        <div class="paper-links">
+                            <span class="paper-link secondary disabled">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="paper-content">
+                        <h3>Evolution in Expanded Myxomatrix Environments</h3>
+                        <div class="paper-links">
+                            <span class="paper-link secondary disabled">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/dawn-chorus-logo.png" alt="Dawn Chorus" class="footer-logo-icon">
+                <img src="images/dawn-chorus-text-and-tagline.png" alt="Dawn Chorus" class="footer-logo-text">
+                <p>A research Initiative by Bradley L. Smith</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home" onclick="scrollToTop(event)">Home</a>
+                <a href="#mission">Mission</a>
+                <a href="#myxomatrix">Myxomatrix</a>
+                <a href="#research">Research</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/BradLSmith/myxomatrix" class="social-link" target="_blank">
+                    <span class="social-icon">🐙</span>
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/bradley-smith-030289379/" class="social-link" target="_blank">
+                    <span class="social-icon">💼</span>
+                    LinkedIn
+                </a>
+                <a href="https://www.youtube.com/channel/UC-jxG2kI_NMv68HRczqkwuw" class="social-link" target="_blank">
+                    <span class="social-icon">📺</span>
+                    YouTube
+                </a>
+                <a href="https://x.com/dawnchorusevo" class="social-link" target="_blank">
+                    <span class="social-icon">🅧</span>
+                    Twitter/X Platform
+                </a>
+                <a href="https://bsky.app/profile/dawnchorusevo.bsky.social" class="social-link" target="_blank">
+                    <span class="social-icon">🦋</span>
+                    Bluesky
+                </a>
+                <a href="https://reddit.com/u/DawnChorusInnovation" class="social-link" target="_blank">
+                    <span class="social-icon">🤖</span>
+                    Reddit
+                </a>
+            </div>
+            <p style="margin-top: 2rem; color: rgba(255, 255, 255, 0.5);">
+                © 2025 All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        let ticking = false;
+
+        function updateNavbar() {
+            const navbar = document.getElementById('navbar');
+            const scrollPosition = window.scrollY;
+
+            // Add/remove scrolled class based on scroll position
+            if (scrollPosition > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Position navbar to follow scroll (with offset for viewport alignment)
+            navbar.style.transform = `translateY(${scrollPosition}px)`;
+
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+
+        // Function to scroll to absolute top
+        function scrollToTop(event) {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Initial positioning
+        updateNavbar();
+    </script>
+</body>
+
+</html>
