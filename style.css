@@ -2081,3 +2081,89 @@ h2.ic-title {
         padding: 0 0.5rem;
     }
 }
+
+/* Standard phones (390px and below) - iPhone 14, most modern phones */
+@media (max-width: 390px) {
+    .nav-container {
+        padding: 0 0.2rem !important;
+        gap: 0.1rem !important;
+    }
+
+    .logo-image {
+        height: 45px !important;
+    }
+
+    .nav-links {
+        gap: 0.1rem !important;
+    }
+
+    .nav-links a {
+        padding: 0.15rem 0.25rem !important;
+        font-size: 0.6rem !important;
+    }
+}
+
+/* Compact phones (360px and below) - Samsung Galaxy, many Android phones */
+@media (max-width: 360px) {
+    .nav-container {
+        padding: 0 0.1rem !important;
+        gap: 0.05rem !important;
+    }
+
+    .logo-image {
+        height: 40px !important;
+    }
+
+    .nav-links {
+        gap: 0.05rem !important;
+    }
+
+    .nav-links a {
+        padding: 0.1rem 0.2rem !important;
+        font-size: 0.55rem !important;
+    }
+}
+
+/* Small phones (320px and below) - older iPhones, budget phones */
+@media (max-width: 320px) {
+    .nav-container {
+        padding: 0 !important;
+        gap: 0 !important;
+    }
+
+    .logo-image {
+        height: 35px !important;
+    }
+
+    .nav-links {
+        gap: 0 !important;
+    }
+
+    .nav-links a {
+        padding: 0.08rem 0.15rem !important;
+        font-size: 0.5rem !important;
+    }
+
+    /* Consider hiding one nav item on very small screens */
+    .nav-links a[href="#research"] {
+        display: none !important;
+    }
+}
+
+/* Tiny phones (280px and below) - very old or very small phones */
+@media (max-width: 280px) {
+    .logo-image {
+        height: 30px !important;
+    }
+
+    .nav-links a {
+        padding: 0.05rem 0.1rem !important;
+        font-size: 0.45rem !important;
+    }
+
+    /* Hide two nav items on tiny screens */
+    .nav-links a[href="#research"],
+    .nav-links a[href="#mission"] {
+        display: none !important;
+    }
+}
