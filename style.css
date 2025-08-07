@@ -1625,3 +1625,408 @@ h2.ic-title {
     transform: none;
     box-shadow: none;
 }
+
+/* Small phones (480px and below) */
+@media (max-width: 480px) {
+
+    /* Even more compact navbar */
+    .navbar-container {
+        height: 70px;
+    }
+
+    /* Remove logo padding and tighten navbar */
+    .logo {
+        gap: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        min-width: 0;
+        flex-shrink: 1;
+    }
+
+    .logo-image {
+        height: 50px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    nav.scrolled .logo-image {
+        height: 50px !important;
+    }
+
+    .nav-container {
+        padding: 0 0.3rem;
+        gap: 0.3rem;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    /* Ultra-compact navigation */
+    .nav-links {
+        gap: 0.2rem;
+        flex-shrink: 0;
+    }
+
+    .nav-links a {
+        padding: 0.15rem 0.3rem;
+        font-size: 0.7rem;
+        border-radius: 3px;
+        white-space: nowrap;
+    }
+
+    /* Hero section adjustments */
+    .hero {
+        min-height: 70vh;
+        padding: 0.5rem 0;
+    }
+
+    .hero-split {
+        padding: 0.5rem;
+        gap: 1rem;
+    }
+
+    .hero-logo {
+        height: 150px;
+    }
+
+    .hero-content-left h1 {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+
+    .hero-content-left p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* More compact buttons */
+    .hero-content-left a.cta-button {
+        width: 180px !important;
+        max-width: 180px !important;
+        font-size: 0.8rem;
+        padding: 0.7rem 0.8rem;
+    }
+
+    .hero-content-left a.cta-button.secondary {
+        width: 140px !important;
+        max-width: 140px !important;
+        height: 45px !important;
+        font-size: 0.75rem;
+        padding: 0.4rem !important;
+    }
+
+    .hero-content-left .secondary-buttons {
+        gap: 0.8rem !important;
+    }
+
+    /* Compact sections */
+    .section {
+        padding: 3rem 0;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .section p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Tighter feature grid */
+    .features-grid {
+        gap: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .features-grid .feature-icon {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.2rem;
+    }
+
+    .features-grid .feature-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .features-grid .feature-card p {
+        font-size: 1rem;
+    }
+
+    /* Compact evolution flow */
+    .myxomatrix-hero-fullwidth .evolution-flow {
+        margin: 0.5rem;
+        padding: 1rem 0.5rem;
+        gap: 1rem;
+    }
+
+    .evolution-flow .stage {
+        max-width: 90%;
+    }
+
+    .evolution-flow .stage h3 {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .evolution-flow .arrow svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Compact paper cards */
+    .papers-grid {
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .paper-preview {
+        height: 150px;
+        font-size: 1.5rem;
+    }
+
+    .paper-content {
+        padding: 1.5rem;
+    }
+
+    .paper-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .paper-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .paper-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .paper-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* Compact footer */
+    .footer-content {
+        padding: 0 1rem;
+    }
+
+    .footer-logo-icon {
+        height: 120px !important;
+    }
+
+    .footer-logo-text {
+        height: 50px !important;
+    }
+
+    .footer-links {
+        gap: 0.8rem;
+    }
+
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        gap: 0.3rem;
+    }
+
+    .social-link {
+        max-width: 180px;
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    /* Preprint page adjustments */
+    .paper-header {
+        padding: 2rem 0;
+    }
+
+    .paper-header h1 {
+        font-size: 1.6rem;
+        line-height: 1.2;
+    }
+
+    .paper-authors {
+        font-size: 1rem;
+    }
+
+    .paper-affiliation {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .paper-button {
+        max-width: 250px;
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+    }
+
+    .paper-content {
+        padding: 1.5rem 0.8rem;
+        margin-top: 0.5rem;
+    }
+
+    .paper-content h2 {
+        font-size: 1.3rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .paper-content h3 {
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .paper-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.6;
+    }
+
+    .paper-content ul,
+    .paper-content ol {
+        padding-left: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .paper-content li {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+        line-height: 1.6;
+    }
+
+    /* Compact notice boxes */
+    .notice-box {
+        padding: 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .notice-box p {
+        font-size: 0.9rem;
+    }
+
+    /* Compact citation boxes */
+    .citation-box {
+        padding: 1rem;
+        margin: 1.5rem 0;
+        font-size: 0.8rem;
+    }
+
+    /* Abstract and keywords */
+    .abstract {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .abstract h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .keywords {
+        padding: 0.8rem;
+        margin: 1.5rem 0;
+    }
+
+    /* Compact figures */
+    .figure-container {
+        margin: 2rem auto;
+    }
+
+    .figure-caption {
+        font-size: 0.85rem;
+        padding: 0 0.5rem;
+    }
+
+    /* Evolution sequence adjustments */
+    .evolution-sequence {
+        gap: 0.8rem;
+        margin: 1.5rem 0;
+    }
+
+    .evolution-stage {
+        min-width: 120px;
+        max-width: 70%;
+    }
+
+    .evolution-label {
+        font-size: 0.9rem;
+    }
+
+    .evolution-arrow {
+        font-size: 1.5rem;
+        margin: 0.3rem 0;
+    }
+
+    /* Preprint navigation */
+    .preprint-nav .nav-container {
+        gap: 0.8rem !important;
+        padding: 0 1rem;
+    }
+
+    .preprint-nav .preprint-logo-image {
+        height: 70px !important;
+    }
+
+    .preprint-nav .back-link {
+        font-size: 0.9rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+
+    /* Myxomatrix actions */
+    .myxomatrix-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        margin: 1.5rem 0;
+    }
+
+    .myxomatrix-actions .paper-button {
+        max-width: 200px;
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+    }
+
+    /* IC validation content */
+    .ic-validation-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .ic-validation-content p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+
+    /* Rounded boxes */
+    .rounded-box {
+        padding: 2rem 1rem;
+        margin: 2rem auto;
+    }
+
+    .rounded-box h3,
+    .rounded-box h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .rounded-box p {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+}
